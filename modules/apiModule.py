@@ -526,11 +526,12 @@ class Api:
             # RETURN values for user to select
             # export selection
             # eventsFound = exportStandardFile(df, fileSelect, self)
-            eventsFound = exportStandardFile(df, fileSelect, config)
+            eventsFound, duplicates = exportStandardFile(df, fileSelect, config)
             # check what values are given
             return {
                 "found": eventsFound,
-                "path": fileSelect
+                "path": fileSelect,
+                "duplicatesFound": duplicates
             }
         
     def openCsvFolder(self):
